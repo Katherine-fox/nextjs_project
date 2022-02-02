@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  max-width: 85%;
+  margin: 0 auto;
+  column-gap: 10%;
+  padding-top: 10rem;
+}
+
+.column{
+  flex-direction: column;
+}
+
+.img_wrapper{
+  width: 30%;
+}
+
+.text_wrapper{
+  width: 60%;
+}
+
+
