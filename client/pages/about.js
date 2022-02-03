@@ -1,4 +1,4 @@
-function about() {
+function About() {
   return (
     <>
     <h2>About</h2>
@@ -6,5 +6,5 @@ function about() {
   );
 }
 
-export default about;
+export default About;
 
