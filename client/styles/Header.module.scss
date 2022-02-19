@@ -9,8 +9,6 @@
     z-index: 9;
 }
 
-
-
 .wrapper{
     height: 100%;
     max-width: 85%;
@@ -34,7 +32,7 @@
     &::before{  
         content: "";
         height: 0rem;
-        background: $purple;
+        background: #c7dfb9b0;
         width: 100%;
         border-radius: 0 0 1.5rem 1.5rem;
         position: absolute;
@@ -65,7 +63,7 @@
     &::before{  
         content: "";
         height: 3rem;
-        background: $purple;
+        background: $green;
         width: 100%;
         border-radius: 0 0 1.5rem 1.5rem;
         position: absolute;

@@ -136,17 +136,19 @@ function MyApp({ Component, pageProps }) {
           detectRetina: true,
         }}
       />
-      {console.log(router)}
       <section className={header_style.header}>
           <div className={header_style.wrapper}> 
             <Link href="/" >
-              <a className={router.asPath==="/" ? header_style.nav_link_active : header_style.nav_link}>Home</a>
+              <a className={router.asPath === "/" ? header_style.nav_link_active : header_style.nav_link}>Home</a>
             </Link>
             <Link href="/about">
-              <a className={router.asPath==="/about" ? header_style.nav_link_active : header_style.nav_link}>About</a>
+              <a className={router.asPath === "/about" ? header_style.nav_link_active : header_style.nav_link}>About</a>
+            </Link>
+            <Link href="/for_fun">
+              <a className={router.asPath==="/for_fun" ? header_style.nav_link_active : header_style.nav_link}>For Fun</a>
             </Link>
             <Link href="/pure_css">
-              <a className={router.asPath==="/pure_css" ? header_style.nav_link_active : header_style.nav_link}>Pure Css</a>
+              <a className={router.asPath === "/pure_css" ? header_style.nav_link_active : header_style.nav_link}>Pure Css</a>
             </Link>
           </div>
       </section>
