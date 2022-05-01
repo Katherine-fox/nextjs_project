@@ -5,9 +5,10 @@ import '../styles/globals.scss'
 import Link from 'next/link';
 import Particles from "react-tsparticles";
 import { useRouter } from "next/router";
+import { useEffect, useState } from 'react';
 
 function MyApp({ Component, pageProps }) {
-
+  const [headerChange, setHeaderChange] = useState(false); // Defaults to `false`
   const router = useRouter();
   
 
@@ -19,6 +20,31 @@ function MyApp({ Component, pageProps }) {
     //console.log(container);
   };
 
+  useEffect(() => {
+    const header = document.getElementById("main_header");
+    if (router.pathname === "/") {
+      setHeaderChange(true);
+      header.classList.add("headerTest");
+    }
+  }, []);
+
+  useEffect(() => {
+    const header = document.getElementById("main_header");
+    function checkScroll() {
+      if (window.innerWidth <= 768) {
+        header.classList.remove("headerTest");
+      }
+      if (window.scrollY === 0) {
+        header.classList.add("headerTest");
+      }
+    }
+    if (headerChange) {
+      window.addEventListener("scroll", checkScroll);
+      // Remove event listener on cleanup
+      return () => window.removeEventListener("resize", checkScroll);
+    }
+  }, [headerChange]);
+  
   return (
     <Layout>
       <Head>
@@ -136,9 +162,9 @@ function MyApp({ Component, pageProps }) {
           detectRetina: true,
         }}
       />
-      <section className={header_style.header}>
-          <div className={header_style.wrapper}> 
-            <Link href="/" >
+      <section className={header_style.header} id="main_header">
+          <div className={header_style.wrapper} > 
+            <Link href="/">
               <a className={router.asPath === "/" ? header_style.nav_link_active : header_style.nav_link}>Home</a>
             </Link>
             <Link href="/about">

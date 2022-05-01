@@ -25,4 +25,40 @@ img{
   box-sizing: border-box;
 }
 
+.btn_primary{
+  border:none;
+  background: $peach;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  -webkit-box-shadow: 0px 1px 10px 1px rgba(81, 114, 87, 0.2); 
+  -moz-box-shadow: 0px 0px 10px 1px rgba(87, 119, 93, 0.2);
+  box-shadow: 0px 0px 10px 1px rgba(108, 150, 116, 0.2);
+  transition: all ease-out 100ms;
+  position: relative;
+  top: 0;
+  
+  &:hover{
+    -webkit-box-shadow: 0px 1px 10px 1px rgba(81, 114, 87, 0.2); 
+    -moz-box-shadow: 0px 0px 10px 1px rgba(55, 75, 58, 0.2);
+    box-shadow: 0px 0px 10px 1px rgba(41, 53, 43, 0.2);
+  }
 
+  &:active{
+    // position: relative;
+    // top: 5px;
+    transform: scale(0.96);
+  }
+}
+
+.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root{
+  border-radius: 14px;
+}
+
+.MuiInputLabel-root.Mui-focused{
+  color: $dark_purple;
+}
+
+.MuiOutlinedInput-notchedOutline{
+  border-color: $dark_purple !important;
+}

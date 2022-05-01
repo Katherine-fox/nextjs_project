@@ -1,7 +1,5 @@
 @import 'colors';
 
-
-
 .container {
     display: flex;
     align-items: center;
@@ -20,7 +18,7 @@
     justify-content: center;
     position: relative;
     flex-wrap: wrap;
-
+    
     .block{
         width: 25%;
         border: 2px solid #7f6e88;
@@ -52,4 +50,9 @@
             }
         }
     }
+}
+
+.search_field{
+    margin: 4rem 0 5rem;
+    background: $bg;
 }

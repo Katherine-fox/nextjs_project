@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image'
-import styles from '../styles/ForFun.module.scss';
+import styles_rm from '../styles/ForFun.module.scss';
 import frame_src from '../styles/images/tv_frame.png';
+import IconButton from "@material-ui/core/IconButton";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import SearchIcon from "@material-ui/icons/Search";
+import TextField from '@mui/material/TextField';
+import Link from 'next/link';
+import Character_card from './character_card';
 
 const defaultEndpoint = 'https://rickandmortyapi.com/api/character/';
 
@@ -22,6 +28,7 @@ function Rick_morty({data}) {
         ...info, current: defaultEndpoint
     })
     const {current} = page;
+    const [searchQuery, setSearchQuery] = useState("");
 
     useEffect(() => {
 
@@ -52,7 +59,7 @@ function Rick_morty({data}) {
       request();
     }, [current]);
 
-    const handleLoadMore = () =>{
+    const handleLoadMore = () => {
         setPage(prev=>{
             return {
                 ...prev, 
@@ -60,29 +67,57 @@ function Rick_morty({data}) {
             }
         })
     }
+
+    const buildBlocks = (e) => {
+        
+        let filtered_results;
+
+        if (searchQuery){
+            filtered_results = results.filter(result => result.name.toLowerCase().includes(searchQuery.toLowerCase()));
+        }else{
+            filtered_results = results;
+        }
+
+        return filtered_results.map((result, key)=>{
+            return (
+                <Link href={{
+                    pathname: "/character_card",
+                    query: result, // the data
+                  }}>
+                    <a className={styles_rm.block}>
+                        <div className={styles_rm.img_wrapper}>
+                            <img src={result.image} alt={result.name}/>
+                        </div>
+                        <div className={styles_rm.text_wrapper}>
+                            <h4>Name: {result.name}</h4>
+                            <p>Gender: {result.gender}</p>
+                            <p>Status: {result.status}</p>
+                        </div> 
+                    </a>
+                </Link>
+            )
+        })    
+    }
     
     return (
-        <div  className={styles.container}>
+        <div className={styles_rm.container}>
             <h1>{'Rick & Morty Complete Characters Collection'}</h1>
-            <div className={styles.block_wrapper}>
-                {
-                    results?.map((result, key)=>{
-                        const img_src = result.image;
-                        return (
-                            <div key={result.id} className={styles.block}>
-                                <div className={styles.img_wrapper}>
-                                    <img src={img_src} alt={result.name}/>
-                                </div>
-                                
-                                <div className={styles.text_wrapper}>
-                                    <h4>Name: {result.name}</h4>
-                                    <p>Gender: {result.gender}</p>
-                                    <p>Status: {result.status}</p>
-                                </div>
-                            </div>
-                        )
-                    })
-                }
+            <TextField
+            label="Search character"
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className={styles_rm.search_field}
+            InputProps={{
+                endAdornment: (
+                <InputAdornment>
+                    <IconButton>
+                    <SearchIcon />
+                    </IconButton>
+                </InputAdornment>
+                )
+            }}
+            />
+            <div className={styles_rm.block_wrapper}>
+                {buildBlocks()}
             </div>
             <button onClick={handleLoadMore}>More</button>
         </div>
