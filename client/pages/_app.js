@@ -12,14 +12,6 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   
 
-  const particlesInit = (main) => {
-    //console.log(main);
-  };
-
-  const particlesLoaded = (container) => {
-    //console.log(container);
-  };
-
   useEffect(() => {
     const header = document.getElementById("main_header");
     if (router.pathname === "/") {
@@ -54,12 +46,10 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <Particles
         id="tsparticles"
-        init={particlesInit}
-        loaded={particlesLoaded}
         options={{
           background: {
             color: {
-              value: "#F6F1F8",
+              value: "#202020",
             },
           },
           fpsLimit: 120,
@@ -93,14 +83,14 @@ function MyApp({ Component, pageProps }) {
           },
           particles: {
             number: {
-              value: 135,
+              value: 60,
               density: {
                 enable: true,
                 value_area: 800
               }
             },
             color: {
-              value: "#cdb4db"
+              value: "#73DAFF"
             },
             shape: {
               type: "circle",

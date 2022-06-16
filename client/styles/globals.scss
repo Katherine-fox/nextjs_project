@@ -7,9 +7,10 @@ body {
   margin: 0;
   font-family: "Comfortaa";
   font-size: 1.1rem;
-  background: $bg;
-  color: $dark;
+ // background: $bg;
+  color: $white;
   scroll-behavior: smooth;
+  background: #fcfcfc;
 }
 
 a {
@@ -21,6 +22,7 @@ a {
 img{
   max-width: 100%;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -61,4 +63,30 @@ img{
 
 .MuiOutlinedInput-notchedOutline{
   border-color: $dark_purple !important;
+}
+
+.flex{
+  display: flex;
+}
+
+.wrap{
+  flex-wrap: wrap;
+}
+
+.flex_all_center{
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-column{
+  flex-direction: column;
+}
+
+
+h1{
+  font-size: 4rem;
+}
+
+h2,h3{
+  font-size: 7rem;
 }

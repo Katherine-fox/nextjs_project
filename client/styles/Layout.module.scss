@@ -1,16 +1,9 @@
 @import 'colors';
 
-.h1{
-  position:relative;
-
-}
 .container {
-  display: flex;
-  align-items: center;
   max-width: 85%;
   margin: 0 auto;
-  column-gap: 10%;
-  padding-top: 8rem;
+  gap: 3vh;
   position: relative;
 }
 
@@ -88,4 +81,8 @@
 
 .bold_text{
   font-weight: 700;
+}
+
+.h1_home{
+  color: $blue;
 }

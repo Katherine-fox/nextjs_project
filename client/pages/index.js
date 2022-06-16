@@ -12,18 +12,10 @@ export default function Home() {
         <meta name="description" content="Kate's Website" />
         <link rel="icon" href="/icon.ico" />
       </Head>
-      <div className={styles.container}>
-          <div className={styles.text_wrapper}>
-                <h1 className={styles.h1_home}>Hello, my name is Kate Aharonov</h1>
-                <p className="small-text">I am full stack web developer based in Haifa, Israel, and I'm very passionate and dedicated to my work. As developer, I have acquired the skills necessary to build great and premium websites. </p>
-                <a href="#" className={styles.btn_primary}> download cv </a>
-          </div>
-          <div className={styles.img_wrapper}>
-              <Image
-                src={mypic}
-                alt="Kate Belyanskaya"
-              />
-          </div>
+      <div className={styles.container, styles.flex, styles.flex_all_center, styles.flex_column}>         
+        <h1 className={styles.h1_home }>Hello, my name is Katherine </h1>
+        <p className="small-text">I am full stack web developer based in Haifa, Israel, and I'm very passionate and dedicated to my work. As developer, I have acquired the skills necessary to build great and premium websites. </p>
+        <a href="#" className={styles.btn_primary}> download cv </a>   
       </div>
     </>
   )
